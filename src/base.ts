@@ -1,44 +1,44 @@
-import Command from '@oclif/command'
-import * as fs from 'fs-extra'
-import * as moment from 'moment'
-import * as path from 'path'
+import Command from "@oclif/command";
+import * as fs from "fs-extra";
+import * as moment from "moment";
+import * as path from "path";
 
 export abstract class AutocompleteBase extends Command {
   public get cliBin() {
-    return this.config.bin
+    return this.config.bin;
   }
 
   public get cliBinEnvVar() {
-    return this.config.bin.toUpperCase().replace('-', '_')
+    return this.config.bin.toUpperCase().replace("-", "_");
   }
 
   public errorIfWindows() {
     if (this.config.windows) {
-      throw new Error('Autocomplete is not currently supported in Windows')
+      throw new Error("Autocomplete is not currently supported in Windows");
     }
   }
 
   public errorIfNotSupportedShell(shell: string) {
     if (!shell) {
-      this.error('Missing required argument shell')
+      this.error("Missing required argument shell");
     }
-    this.errorIfWindows()
-    if (!['bash', 'zsh'].includes(shell)) {
-      throw new Error(`${shell} is not a supported shell for autocomplete`)
+    this.errorIfWindows();
+    if (!["bash", "fish", "zsh"].includes(shell)) {
+      throw new Error(`${shell} is not a supported shell for autocomplete`);
     }
   }
 
   public get autocompleteCacheDir(): string {
-    return path.join(this.config.cacheDir, 'autocomplete')
+    return path.join(this.config.cacheDir, "autocomplete");
   }
 
   public get acLogfilePath(): string {
-    return path.join(this.config.cacheDir, 'autocomplete.log')
+    return path.join(this.config.cacheDir, "autocomplete.log");
   }
 
   writeLogFile(msg: string) {
-    const entry = `[${moment().format()}] ${msg}\n`
-    const fd = fs.openSync(this.acLogfilePath, 'a')
-    fs.write(fd, entry)
+    const entry = `[${moment().format()}] ${msg}\n`;
+    const fd = fs.openSync(this.acLogfilePath, "a");
+    fs.write(fd, entry);
   }
 }
