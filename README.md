@@ -37,9 +37,10 @@ OPTIONS
 EXAMPLES
   $ oclif-example autocomplete
   $ oclif-example autocomplete bash
+  $ oclif-example autocomplete fish
   $ oclif-example autocomplete zsh
   $ oclif-example autocomplete --refresh-cache
 ```
 
-_See code: [src/commands/autocomplete/index.ts](https://github.com/oclif/plugin-autocomplete/blob/v0.2.0/src/commands/autocomplete/index.ts)_
+_See code: [src/commands/autocomplete/index.ts](https://github.com/edukinara/plugin-autocomplete/blob/v0.2.3/src/commands/autocomplete/index.ts)_
 <!-- commandsstop -->

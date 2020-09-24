@@ -99,11 +99,11 @@ export default class Create extends AutocompleteBase {
 
   private get fishCompletionFunctionPath(): string {
     // dynamically load path to completions file
-    const dir = child_process
-      .execSync("pkg-config --variable completionsdir fish")
-      .toString()
-      .trimRight();
-    return `${dir}/${this.cliBin}.fish`;
+    // const dir = child_process
+    //   .execSync("pkg-config --variable completionsdir fish")
+    //   .toString()
+    //   .trimRight();
+    return `${this.config.home}/.config/fish/completions/${this.cliBin}.fish`;
   }
 
   private get zshCompletionFunctionPath(): string {

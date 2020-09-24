@@ -1,9 +1,9 @@
 {
-  "name": "@oclif/plugin-autocomplete",
-  "description": "autocomplete plugin for oclif",
-  "version": "0.2.0",
-  "author": "Philipe Navarro @RasPhilCo",
-  "bugs": "https://github.com/oclif/plugin-autocomplete/issues",
+  "name": "@edukinara/plugin-customautocomplete",
+  "description": "autocomplete plugin for oclif with fish shell support",
+  "version": "0.2.3",
+  "author": "Edwin Kinara",
+  "bugs": "https://github.com/edukinara/plugin-autocomplete/issues",
   "dependencies": {
     "@oclif/command": "^1.5.13",
     "@oclif/config": "^1.13.0",
@@ -38,13 +38,9 @@
     "node": ">=8.0.0"
   },
   "files": [
-    "/lib",
-    "/oclif.manifest.json"
+    "/lib"
   ],
-  "homepage": "https://github.com/oclif/plugin-autocomplete",
-  "keywords": [
-    "oclif-plugin"
-  ],
+  "homepage": "https://github.com/edukinara/plugin-autocomplete",
   "license": "MIT",
   "oclif": {
     "commands": "./lib/commands",
@@ -53,7 +49,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "oclif/plugin-autocomplete",
+  "repository": "edukinara/plugin-autocomplete",
   "scripts": {
     "lint": "eslint . --ext .ts --config .eslintrc",
     "pretest": "yarn build --noEmit && tsc -p test --noEmit",
